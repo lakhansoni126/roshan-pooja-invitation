@@ -241,7 +241,7 @@
       return `
       <div class="event-block">
         <div class="event-invite-frame${ev.image ? "" : " plain"}">
-          ${ev.image ? `<img class="event-invite-bg" src="${esc(ev.image)}" alt="" loading="lazy"><div class="event-invite-shade"></div>` : ""}
+          ${ev.image ? `<img class="event-invite-bg" src="${esc(ev.image)}" alt="" loading="lazy"${ev.imagePosition ? ` style="object-position:${esc(ev.imagePosition)}"` : ""}><div class="event-invite-shade"></div>` : ""}
           <div class="event-invite-overlay"><div class="event-invite-stack">
             <h3 class="event-invite-title${dark}">${esc(ev.title)}</h3>
             <div class="event-date-row${dark}"><span>${esc(ev.day)}</span><span class="event-date-bar">|</span><span class="event-date-num">${esc(ev.num)}</span><span class="event-date-bar">|</span><span>${esc(ev.monthYear)}</span></div>

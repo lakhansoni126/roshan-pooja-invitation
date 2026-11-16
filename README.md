@@ -55,3 +55,8 @@ Only the venue map needs an internet connection; fonts and everything else are l
 ## Speed
 
 The page is tuned to show the "Tap to open" screen as fast as possible: the first video frame is a small poster image, the music, paper textures, photos and the Google map are only fetched after the invitation is opened or when they scroll near, and the fonts are served from `assets/fonts`. If you replace `intro.mp4` or `music.mp3`, keep them small (about 1 MB each).
+
+## Photo credits (bride page)
+
+* `assets/ev-baraat.jpg` – "Sawai Madhopur, groom during baraat" by Arian Zwegers, CC BY 2.0, https://www.flickr.com/photos/67769030@N07/6263900501 (cropped)
+* `assets/ev-mehndi.jpg` – "All grown up and married!" by marian_spiers, CC BY-SA 2.0, https://www.flickr.com/photos/31966439@N00/542761993 (cropped)
