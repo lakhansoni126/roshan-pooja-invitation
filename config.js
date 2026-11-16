@@ -67,8 +67,7 @@ window.INVITE = {
     aspectRatio: "2 / 3",   // shape of the photo box (width / height); leave "" to fit the tallest photo automatically
     images: [
       "assets/photo-1.jpg",
-      "assets/photo-2.jpg",
-      "assets/photo-3.jpg"
+      "assets/photo-2.jpg"
     ]
   },
 

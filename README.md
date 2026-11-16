@@ -11,7 +11,7 @@ Plain HTML + CSS + JavaScript. No framework, no build step.
 | `style.css` | The design (mobile first, same values as the original template) |
 | `script.js` | Interactions: tap-to-open video, music, scratch heart, countdown, slideshow, calendar links, RSVP |
 | `preview.html` | Phone-sized preview to view on a desktop browser |
-| `assets/` | Intro video (`intro.mp4`) and its first frame (`poster.jpg`), background music, background textures, slideshow photos (`photo-1/2/3.jpg`), link-preview images (`og-*.jpg`), self-hosted fonts (`fonts/`, `fonts.css`) |
+| `assets/` | Intro video (`intro.mp4`) and its first frame (`poster.jpg`), background music, background textures, slideshow photos (`photo-1/2.jpg`), link-preview images (`og-*.jpg`), self-hosted fonts (`fonts/`, `fonts.css`) |
 | `card-translation.md` | Full English translation of the Hindi wedding card the details came from |
 
 ## Editing the invitation
