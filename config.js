@@ -45,12 +45,14 @@ window.INVITE = {
   /* ---------- SECTION HEADINGS ---------- */
   headings: {
     scratch: "Scratch to Reveal",
+    scratchLabel: "Scratch here",                                  // small badge shown on the heart
+    scratchHint: "Rub the heart with your finger",               // caption under the heart
     scratchInvited: "You're Invited!",
     saveTheDate: "Save the Date",
     countdown: "Counting Down to Forever",
     timeline: "Wedding Day Program",
     venue: "Reception & Venue",
-    dressCode: "With Best Compliments From",
+    dressCode: "Dress Code",
     preEvents: "Mangalik Karyakram",
     transportation: "Baraat",
     accommodation: "Accommodation",
@@ -58,14 +60,15 @@ window.INVITE = {
     rsvp: "RSVP"
   },
 
-  /* ---------- PHOTO SLIDESHOW (currently the three pages of the printed card) ---------- */
+  /* ---------- PHOTO SLIDESHOW ---------- */
   slideshow: {
     enabled: true,
     intervalSeconds: 4,
+    aspectRatio: "2 / 3",   // shape of the photo box (width / height); leave "" to fit the tallest photo automatically
     images: [
-      "assets/card-1.jpg",
-      "assets/card-2.jpg",
-      "assets/card-3.jpg"
+      "assets/photo-1.jpg",
+      "assets/photo-2.jpg",
+      "assets/photo-3.jpg"
     ]
   },
 
@@ -92,21 +95,12 @@ window.INVITE = {
     mapEmbedUrl: "https://maps.google.com/maps?q=Aspura%2C%20Ajeetgarh%2C%20Sikar%2C%20Rajasthan&t=m&z=13&output=embed"
   },
 
-  /* ---------- FAMILY GROUPS (this section lists the family names from the card) ---------- */
+  /* ---------- DRESS CODE (hidden; set enabled:true and add groups to show it) ---------- */
   dressCode: {
-    enabled: true,
-    icon: "users",   // icon shown above the heading: users, shirt, gift, heart, hotel, car, party-popper, mail
+    enabled: false,
+    icon: "shirt",   // icon shown above the heading: users, shirt, gift, heart, hotel, car, party-popper, mail
     groups: [
-      { title: "Groom's Family",                           text: "Roshan, son of Smt. Nathi Devi & Late Shri Dhudaram Ji Sewaliya\nGrandson of Late Smt. Gothi Devi & Late Shri Manglaram Ji Sewaliya\nResident of Aspura" },
-      { title: "Bride's Family",                           text: "Pooja, daughter of Smt. Maya Devi & Shri Prema Ram Ji Sablania\nGranddaughter of Late Smt. Patasi Devi & Late Shri Mangu Ram Ji Sablania\nResident of Itawa Bhopji" },
-      { title: "Invited By",                               text: "Yogendra Sewaliya & Suresh Kumar Sewaliya (Railway)\nWard No. 9, Aspura, via Ajeetgarh, Tehsil Shrimadhopur, District Sikar, Rajasthan\nMob. 9928495123, 9928464757, 7891181088" },
-      { title: "Uttarakankshi (Eagerly Awaiting You)",     text: "Kishan Lal (A.) – Sanjya Devi\nLalchand (A.) – Guddi Devi" },
-      { title: "Swagatkarta (Your Hosts)",                 text: "Priyanka – Yogendra\nSarita – Suresh\nLalit, Manoj, Prem" },
-      { title: "Jamai Paksh (Sons-in-law)",                text: "Nirmala – Jugal Kishore Ji\nHansa – Harish Ji (A.)\nSuman – Ramkishore Ji\nAnnu – Dinesh Ji" },
-      { title: "Bua – Fufaji (Paternal Aunts & Uncles)",   text: "Jamna Devi – Late Jagdish Ji\nGeeta Devi – Late Babulal Ji\nSavitri Devi – Govardhan Ji" },
-      { title: "Nanihal Paksh (Maternal Family)",          text: "Gulab Devi – Late Shri Deepchand Ji\nPrem Devi – Chhitar Lal Ji\nMooli Devi – Babu Lal Ji\nRamswaroop, Rajendra, Rakesh, Nathuram, Prahlad, Rudmal (Railway) & the entire Parsoya family, Mundru (Dingi)" },
-      { title: "Badbhati (Elders)",                        text: "Shri Moolchand Ji, Kaluram Ji, Bhagirath Ji, Gopichand Ji, Pooran Ji, Krishna Ji – Manpura" },
-      { title: "Darshanabhilashi (Awaiting Your Presence)", text: "Khemaram, Prakash, Mohanlal, Kailash, Kanaram (RCC), Radheshyam, Sayar, Deependra (RP), Prem, Vaibhav & the entire Sewaliya family" }
+      /* { title: "Ladies", text: "Traditional wear" } */
     ]
   },
 
@@ -193,6 +187,7 @@ window.INVITE = {
   /* ---------- MEDIA ---------- */
   media: {
     introVideo: "assets/intro.mp4",   // "Tap to open" video (portrait)
+    poster: "assets/poster.jpg",      // still image shown instantly while the video loads
     music: "assets/music.mp3",        // background music, loops
     musicOn: true,                    // play music when the invitation is opened
     welcomeBackground: "assets/welcome-bg.jpg",

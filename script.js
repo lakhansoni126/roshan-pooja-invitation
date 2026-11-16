@@ -15,14 +15,30 @@
   const m = C.media || {};
   const root = $(".invite");
   const bgUrl = (p) => (p ? `url("${p}")` : "none");
-  root.style.setProperty("--welcome-bg", bgUrl(m.welcomeBackground));
-  root.style.setProperty("--general-bg", bgUrl(m.generalBackground));
-  root.style.setProperty("--end-bg", bgUrl(m.endBackground));
+  /* the paper textures sit below the hero; they are loaded only after the invitation is opened */
+  let paperLoaded = false;
+  const loadPaper = () => {
+    if (paperLoaded) return;
+    paperLoaded = true;
+    root.style.setProperty("--welcome-bg", bgUrl(m.welcomeBackground));
+    root.style.setProperty("--general-bg", bgUrl(m.generalBackground));
+    root.style.setProperty("--end-bg", bgUrl(m.endBackground));
+  };
 
   const video = $("#introVideo");
   const music = $("#music");
+  if (m.poster) video.poster = m.poster;        /* first frame, shows instantly */
   if (m.introVideo) video.src = m.introVideo;
-  if (m.music) music.src = m.music;
+  /* the music is not fetched on page load: it starts downloading once the video is buffered
+     (or on tap, whichever comes first) so the "Tap to open" screen appears as fast as possible */
+  let musicPrimed = false;
+  const primeMusic = () => {
+    if (musicPrimed || !m.music) return;
+    musicPrimed = true;
+    music.preload = "auto"; music.src = m.music; music.load();
+  };
+  video.addEventListener("canplaythrough", primeMusic, { once: true });
+  window.addEventListener("load", () => setTimeout(primeMusic, 2500), { once: true });
 
   /* placeholders & inputs */
   const r = C.rsvp || {};
@@ -68,16 +84,18 @@
   const reveal = () => {
     if (revealed) return;
     revealed = true;
+    loadPaper();
     hero.classList.add("is-revealed");
     document.body.classList.remove("is-closed");
   };
   const open = () => {
     if (opened) return;
     opened = true;
+    loadPaper();
     video.muted = true;
     const p = video.play();
     if (p && p.catch) p.catch(() => reveal());
-    if (musicWanted && m.music) { music.volume = 1; music.play().catch(() => {}); }
+    if (musicWanted && m.music) { primeMusic(); music.volume = 1; music.play().catch(() => {}); }
     setTimeout(setMuteIcon, 150);
   };
   video.addEventListener("click", open);
@@ -92,7 +110,7 @@
   muteBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     if (!m.music) return;
-    if (music.paused) { musicWanted = true; music.play().catch(() => {}); }
+    if (music.paused) { musicWanted = true; primeMusic(); music.play().catch(() => {}); }
     else { musicWanted = false; music.pause(); }
     setTimeout(setMuteIcon, 50);
   });
@@ -136,7 +154,12 @@
   /* ---------- 6. venue map ---------- */
   if (C.venue && C.venue.enabled) {
     const q = encodeURIComponent(`${C.venue.name || ""}, ${C.venue.address || ""}`);
-    $("#venueMap").src = C.venue.mapEmbedUrl || `https://maps.google.com/maps?q=${q}&t=m&z=14&output=embed`;
+    const mapSrc = C.venue.mapEmbedUrl || `https://maps.google.com/maps?q=${q}&t=m&z=14&output=embed`;
+    /* the Google map is heavy: load it only when the venue section is about to scroll into view */
+    const mapIo = new IntersectionObserver((entries) => {
+      if (entries.some((en) => en.isIntersecting)) { $("#venueMap").src = mapSrc; mapIo.disconnect(); }
+    }, { rootMargin: "800px 0px" });
+    mapIo.observe($("#sec-venue"));
   }
 
   /* ---------- 7. slideshow ---------- */
@@ -162,13 +185,15 @@
     };
     const start = () => { stop(); timer = setInterval(() => show(cur + 1), (cfg.intervalSeconds || 4) * 1000); };
     const stop = () => clearInterval(timer);
-    /* match the box to the tallest photo so every image fits (like the original) */
-    let ratio = Infinity, loaded = 0;
-    cfg.images.forEach((src) => {
-      const im = new Image();
-      im.onload = () => { ratio = Math.min(ratio, im.naturalWidth / im.naturalHeight); if (++loaded === cfg.images.length && isFinite(ratio)) box.style.aspectRatio = ratio + " / 1"; };
-      im.src = src;
-    });
+    /* box shape: from config, or match the tallest photo as each one loads (photos stay lazy) */
+    if (cfg.aspectRatio) box.style.aspectRatio = cfg.aspectRatio;
+    else {
+      let ratio = Infinity;
+      $$(".slide-img", track).forEach((im) => {
+        const fit = () => { if (im.naturalWidth) { ratio = Math.min(ratio, im.naturalWidth / im.naturalHeight); box.style.aspectRatio = ratio + " / 1"; } };
+        if (im.complete) fit(); else im.addEventListener("load", fit, { once: true });
+      });
+    }
     /* swipe / drag */
     let sx = null;
     track.addEventListener("pointerdown", (e) => { sx = e.clientX; stop(); });
@@ -206,10 +231,10 @@
     const W = cv.width, H = cv.height;
     /* green foil surface with sparkle */
     const g = ctx.createRadialGradient(W * .45, H * .42, 8, W * .5, H * .5, W * .62);
-    g.addColorStop(0, "#d6d1bb");
-    g.addColorStop(.35, "#b4b89b");
-    g.addColorStop(.7, "#8e967a");
-    g.addColorStop(1, "#6f7a5f");
+    g.addColorStop(0, "#c9c8a8");
+    g.addColorStop(.35, "#9ea484");
+    g.addColorStop(.7, "#78826a");
+    g.addColorStop(1, "#5b6650");
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     for (let i = 0; i < 2600; i++) {
       const x = Math.random() * W, y = Math.random() * H, rr = Math.random();
@@ -219,22 +244,27 @@
     ctx.globalCompositeOperation = "destination-out";
     let drawing = false, done = false, last = null, strokes = 0;
     const pos = (e) => { const b = cv.getBoundingClientRect(); return { x: (e.clientX - b.left) * W / b.width, y: (e.clientY - b.top) * H / b.height }; };
-    const dab = (p) => { ctx.beginPath(); ctx.arc(p.x, p.y, 24, 0, Math.PI * 2); ctx.fill(); };
-    const line = (a, b) => { ctx.lineWidth = 48; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); };
+    const dab = (p) => { ctx.beginPath(); ctx.arc(p.x, p.y, 30, 0, Math.PI * 2); ctx.fill(); };
+    const line = (a, b) => { ctx.lineWidth = 60; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); };
     const cleared = () => {
       const d = ctx.getImageData(0, 0, W, H).data; let n = 0;
       for (let i = 3; i < d.length; i += 4 * 8) if (d[i] === 0) n++;
       return n / (d.length / (4 * 8));
     };
+    const box = cv.closest(".heart-box"), cta = $("#scratchCta");
     const finish = () => {
       if (done) return; done = true;
       cv.classList.add("done");
+      box.classList.add("done");
+      if (cta) cta.classList.add("hide");
       $("#invitedText").classList.add("show");
       confetti();
     };
-    cv.addEventListener("pointerdown", (e) => { if (done) return; drawing = true; cv.setPointerCapture(e.pointerId); last = pos(e); dab(last); });
-    cv.addEventListener("pointermove", (e) => { if (!drawing || done) return; const p = pos(e); line(last, p); dab(p); last = p; if (++strokes % 12 === 0 && cleared() > 0.45) finish(); });
-    const up = () => { if (!drawing) return; drawing = false; if (!done && cleared() > 0.45) finish(); };
+    const NEED = 0.4;   /* fraction of the foil that must be scratched away */
+    let nudge;          /* brings the hint back if the guest stops half-way */
+    cv.addEventListener("pointerdown", (e) => { if (done) return; e.preventDefault(); drawing = true; clearTimeout(nudge); box.classList.add("scratching"); cv.setPointerCapture(e.pointerId); last = pos(e); dab(last); });
+    cv.addEventListener("pointermove", (e) => { if (!drawing || done) return; const p = pos(e); line(last, p); dab(p); last = p; if (++strokes % 10 === 0 && cleared() > NEED) finish(); });
+    const up = () => { if (!drawing) return; drawing = false; if (!done && cleared() > NEED) finish(); if (!done) nudge = setTimeout(() => box.classList.remove("scratching"), 3000); };
     cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up); cv.addEventListener("pointerleave", up);
   })();
 
