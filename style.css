@@ -340,7 +340,7 @@ a { color: inherit; text-decoration: inherit; }
 .footer .flourish.tl { top: 8px; left: 8px; }
 .footer .flourish.tr { top: 8px; right: 8px; transform: scaleX(-1); }
 .footer-names { font-family: var(--font-calligraphy); font-size: 20px; line-height: 28px; color: hsl(var(--primary)); overflow-wrap: anywhere; }
-.footer-credit { font-size: 12px; line-height: 16px; color: hsl(var(--muted-foreground)); margin-top: 8px; white-space: pre-line; }
+.footer-credit { font-size: 12px; line-height: 16px; color: hsl(var(--muted-foreground)); margin: 8px auto 0; max-width: 230px; white-space: pre-line; } /* narrow so it stays clear of the corner flowers */
 .gold-text { font-family: var(--font-calligraphic); font-size: 16px; font-weight: 600; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; transition: opacity .15s; }
 .gold-text:hover { opacity: .8; }
 .tm { margin-left: 2px; vertical-align: super; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 9px; font-weight: 400; line-height: 1; letter-spacing: normal; }

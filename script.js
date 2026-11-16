@@ -40,6 +40,12 @@
   video.addEventListener("canplaythrough", primeMusic, { once: true });
   window.addEventListener("load", () => setTimeout(primeMusic, 2500), { once: true });
 
+  /* hero name order (bride's card shows the bride first) */
+  if (C.hero && C.hero.brideFirst) {
+    const names = $$(".hero-name"), amp = $(".hero-amp");
+    if (names.length === 2) { names[0].before(names[1]); if (amp) names[0].before(amp); }   /* bride, &, groom */
+  }
+
   /* placeholders & inputs */
   const r = C.rsvp || {};
   $("#rsvpName").placeholder = r.namePlaceholder || "";
