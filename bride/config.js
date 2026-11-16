@@ -91,7 +91,7 @@ window.INVITE = {
         dresscode: { colors: ["rgb(138, 79, 76)", "rgb(212, 175, 55)", "rgb(245, 236, 212)"], names: "Maroon · Gold · Cream", note: "Traditional Indian" } },
       { title: "Pritibhoj",         day: "Monday",    num: "30", monthYear: "Nov 2026", time: "4:15 PM",  image: "../assets/photo-2.jpg", imagePosition: "center top", dark: true,
         tagline: "A feast for our loved ones, from 4:15 PM until your arrival." },
-      { title: "Swagat Baraat",     day: "Monday",    num: "30", monthYear: "Nov 2026", time: "6:15 PM",  image: "../assets/ev-baraat.jpg", imagePosition: "center 30%", dark: true,
+      { title: "Swagat Baraat",     day: "Monday",    num: "30", monthYear: "Nov 2026", time: "6:15 PM",  image: "../assets/photo-2.jpg", imagePosition: "center 55%", dark: true,
         tagline: "We welcome the groom's procession with open hearts." },
       { title: "Panigrahan Sanskar", day: "Monday",   num: "30", monthYear: "Nov 2026", time: "Shubh Lagna", image: "../assets/photo-1.jpg", imagePosition: "center 40%", dark: true,
         tagline: "The sacred vows to begin our forever.",

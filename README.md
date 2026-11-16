@@ -58,5 +58,4 @@ The page is tuned to show the "Tap to open" screen as fast as possible: the firs
 
 ## Photo credits (bride page)
 
-* `assets/ev-baraat.jpg` – "Sawai Madhopur, groom during baraat" by Arian Zwegers, CC BY 2.0, https://www.flickr.com/photos/67769030@N07/6263900501 (cropped)
 * `assets/ev-mehndi.jpg` – "All grown up and married!" by marian_spiers, CC BY-SA 2.0, https://www.flickr.com/photos/31966439@N00/542761993 (cropped)
