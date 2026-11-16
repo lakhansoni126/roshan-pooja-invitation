@@ -14,11 +14,11 @@ window.INVITE = {
     message: "Shubh Vivah",
     groom: {
       name: "Roshan",
-      subtext: "Son of Smt. Nathi Devi\n& Late Shri Dhudaram Ji Sewaliya\nAspura"
+      subtext: "Son of Smt. Nathi Devi\n& Late Shri Dhura Ram Ji Sevaliya\nAspura"
     },
     bride: {
       name: "Pooja",
-      subtext: "Daughter of Smt. Maya Devi\n& Shri Prema Ram Ji Sablania\nIV Grade, Govt. of Rajasthan · Itawa Bhopji"
+      subtext: "Daughter of Smt. Maya Devi\n& Shri Prema Ram Ji Sablaniya\nIV Grade, Govt. of Rajasthan · Itawa Bhopji"
     },
     /* seconds into the video when the names fade in */
     revealAt: 7.2,
@@ -88,7 +88,7 @@ window.INVITE = {
   /* ---------- VENUE ---------- */
   venue: {
     enabled: true,
-    name: "Sewaliya Residence (Reception & Invited Venue)",
+    name: "Sevaliya Residence (Reception & Invited Venue)",
     address: "Ward No. 9, Aspura, via Ajeetgarh, Tehsil Shrimadhopur, District Sikar, Rajasthan",
     /* leave mapEmbedUrl empty to auto-build a Google map from name + address */
     mapEmbedUrl: "https://maps.google.com/maps?q=Aspura%2C%20Ajeetgarh%2C%20Sikar%2C%20Rajasthan&t=m&z=13&output=embed"
@@ -178,7 +178,7 @@ window.INVITE = {
   },
   footer: {
     names: "Roshan & Pooja",
-    creditText: "Yogendra Sewaliya · Suresh Kumar Sewaliya\nMob. 9928495123, 9928464757",
+    creditText: "Yogendra Sevaliya · Suresh Kumar Sevaliya\nMob. 9928495123, 9928464757",
     creditLink: "",        // leave empty to hide the link
     creditUrl: ""
   },

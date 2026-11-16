@@ -12,7 +12,7 @@ Source: `ROSHAN ❤️ POOJA WEDDING CARD.pdf` (3 pages, Hindi).
 - **Monday, 30 November 2026**
 - Pritibhoj (reception feast): **Wednesday, 25 November 2026, 5:15 PM**
 - "श्रीमान/श्रीमती ______" → Mr./Mrs. ______ (space for the guest's name)
-- Sender (Preshak): **Yogendra Sewaliya, Suresh Kumar Sewaliya (Railway)**
+- Sender (Preshak): **Yogendra Sevaliya, Suresh Kumar Sevaliya (Railway)**
   Resident: **Ward No. 9, Aspura, via Ajeetgarh, Tehsil Shrimadhopur, District Sikar, Rajasthan**
   Mobile: **9928495123, 9928464757, 7891181088**
 
@@ -44,12 +44,12 @@ Shloka: *Vighnaharan Mangalkaran Gannayak Ganraj, Riddhi-Siddhi sahit padharo, p
 ## Page 3 – Parinayotsav (wedding celebration)
 
 - *|| Shri Pitrudevay Namah ||* · With the boundless grace of Shri Bajrang Bali Maharaj
-- **Smt. Nathi Devi & Late Shri Dhudaram Ji Sewaliya** invite you to the wedding of their son
-  **Ayushman Roshan** (grandson of Late Smt. Gothi Devi & Late Shri Manglaram Ji Sewaliya), resident of Aspura
-- with **Ayushmati Pooja** (IV Grade, Govt. of Rajasthan), daughter of **Smt. Maya Devi & Shri Prema Ram Ji Sablania** (granddaughter of Late Smt. Patasi Devi & Late Shri Mangu Ram Ji Sablania), resident of Itawa Bhopji
+- **Smt. Nathi Devi & Late Shri Dhura Ram Ji Sevaliya** invite you to the wedding of their son
+  **Ayushman Roshan** (grandson of Late Smt. Gothi Devi & Late Shri Manglaram Ji Sevaliya), resident of Aspura
+- with **Ayushmati Pooja** (IV Grade, Govt. of Rajasthan), daughter of **Smt. Maya Devi & Shri Prema Ram Ji Sablaniya** (granddaughter of Late Smt. Patasi Devi & Late Shri Mangu Ram Ji Sablaniya), resident of Itawa Bhopji
 - "On the auspicious occasion of Vikram Samvat 2083, Margashirsha Krishna Saptami, Monday, 30 November 2026, we cordially and affectionately invite you with your family to bless the bride and groom."
 - **Jamai Paksh (sons-in-law):** Nirmala – Jugal Kishore Ji; Hansa – Harish Ji (A.); Suman – Ramkishore Ji; Annu – Dinesh Ji
 - **Bua – Fufaji (paternal aunts & uncles):** Jamna Devi – Late Jagdish Ji; Geeta Devi – Late Babulal Ji; Savitri Devi – Govardhan Ji
 - **Nanihal Paksh (maternal family):** Gulab Devi – Late Shri Deepchand Ji; Prem Devi – Chhitar Lal Ji; Mooli Devi – Babu Lal Ji; Ramswaroop, Rajendra, Rakesh, Nathuram, Prahlad, Rudmal (Railway) and the entire Parsoya family, residents of Mundru (Dingi)
 - **Badbhati (elders):** Shri Moolchand Ji, Kaluram Ji, Bhagirath Ji, Gopichand Ji, Pooran Ji, Krishna Ji, residents of Manpura
-- **Darshanabhilashi (awaiting your presence):** Khemaram, Prakash, Mohanlal, Kailash, Kanaram (RCC), Radheshyam, Sayar, Deependra (RP), Prem, Vaibhav and the entire Sewaliya family
+- **Darshanabhilashi (awaiting your presence):** Khemaram, Prakash, Mohanlal, Kailash, Kanaram (RCC), Radheshyam, Sayar, Deependra (RP), Prem, Vaibhav and the entire Sevaliya family
