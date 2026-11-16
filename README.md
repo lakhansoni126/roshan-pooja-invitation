@@ -13,7 +13,7 @@ Plain HTML + CSS + JavaScript. No framework, no build step.
 | `preview.html` | Phone-sized preview to view on a desktop browser |
 | `assets/` | Intro video (`intro.mp4`) and its first frame (`poster.jpg`), background music, background textures, slideshow photos (`photo-1/2.jpg`), link-preview images (`og-*.jpg`), self-hosted fonts (`fonts/`, `fonts.css`) |
 | `card-translation.md` | Full English translation of the Hindi wedding card the details came from |
-| `bride/` | The bride's side invitation, served at **/bride** (`bride/index.html` + its own `bride/config.js`; shares the styles, script and assets above) |
+| `bride/` | The bride's side invitation, served at **/bride**. A different design (envelope intro, Ganesh card, scratch cards, countdown, photo stack, venue, festivities, RSVP, maroon footer) with its own `bride/index.html`, `bride/style.css`, `bride/script.js` and `bride/config.js`; shares the photos, music and fonts in `assets/` |
 | `bride-card-translation.md` | English translation of the bride's side (Sablaniya family) card |
 
 ## Editing the invitation
@@ -37,7 +37,13 @@ Use `\n` inside a string for a line break.
 
 ## The /bride page
 
-`bride/config.js` works exactly like `config.js` but the file paths start with `../assets/`. It has `hero.brideFirst: true` so Pooja's name is shown first. To use a different intro video there, put it in `assets/` and point `media.introVideo` at it (for example `"../assets/intro-bride.mp4"`). The family lists from the card are in `dressCode.groups` with `enabled: false`; switch it to `true` to show them.
+All of its text lives in `bride/config.js` (file paths start with `../assets/`):
+
+* `intro` – cover image + video for "Tap to reveal" (`flashSecondsBeforeEnd` controls the white flash)
+* `hero` – Ganesh image, shloka, names (`brideFirst`), parents line
+* `saveTheDate.cards` – the three scratch cards (month / day / year); the rest of the page unlocks when all three are scratched
+* `countdown`, `story.photos`, `venue`, `events.items` (title, day, date, time, optional `image`, `dark`, `tagline`, `dresscode`), `rsvp` (replies open WhatsApp), `footer`
+* Hide a block by deleting its items; the Ganesh image is `assets/bride-ganesh.png` (cut from the printed card)
 
 ## Viewing
 
