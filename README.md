@@ -11,7 +11,7 @@ Plain HTML + CSS + JavaScript. No framework, no build step.
 | `style.css` | The design (mobile first, same values as the original template) |
 | `script.js` | Interactions: tap-to-open video, music, scratch heart, countdown, slideshow, calendar links, RSVP |
 | `preview.html` | Phone-sized preview to view on a desktop browser |
-| `assets/` | Intro video (`intro.mp4`) and its first frame (`poster.jpg`), background music, background textures, slideshow photos (`photo-1/2.jpg`), link-preview images (`og-*.jpg`), self-hosted fonts (`fonts/`, `fonts.css`) |
+| `assets/` | Intro video (`intro.mp4`) and its first frame (`poster.jpg`), background music, background textures, couple photos (`photo-1..4.jpg`), link-preview images (`og-*.jpg`), self-hosted fonts (`fonts/`, `fonts.css`) |
 | `card-translation.md` | Full English translation of the Hindi wedding card the details came from |
 | `bride/` | The bride's side invitation, served at **/bride**. A different design (envelope intro, Ganesh card, scratch cards, countdown, photo stack, venue, festivities, RSVP, maroon footer) with its own `bride/index.html`, `bride/style.css`, `bride/script.js` and `bride/config.js`; shares the photos, music and fonts in `assets/` |
 | `bride-card-translation.md` | English translation of the bride's side (Sablaniya family) card |
@@ -42,7 +42,7 @@ All of its text lives in `bride/config.js` (file paths start with `../assets/`):
 * `intro` – cover image + video for "Tap to reveal" (`flashSecondsBeforeEnd` controls the white flash)
 * `hero` – Ganesh image, shloka, names (`brideFirst`), parents line
 * `saveTheDate.cards` – the three scratch cards (month / day / year); the rest of the page unlocks when all three are scratched
-* `countdown`, `story.photos`, `venue`, `events.items` (title, day, date, time, optional `image`, `dark`, `tagline`, `dresscode`), `rsvp` (replies open WhatsApp), `footer`
+* `countdown`, `story.photos`, `venue`, `events` (shared `venue`/`address`, then one item per ritual: `icon`, `title`, `date`, `time`), `rsvp` (replies open WhatsApp), `footer`
 * Hide a block by deleting its items; the Ganesh image is `assets/bride-ganesh.png` (cut from the printed card)
 
 ## Viewing
@@ -55,7 +55,3 @@ Only the venue map needs an internet connection; fonts and everything else are l
 ## Speed
 
 The page is tuned to show the "Tap to open" screen as fast as possible: the first video frame is a small poster image, the music, paper textures, photos and the Google map are only fetched after the invitation is opened or when they scroll near, and the fonts are served from `assets/fonts`. If you replace `intro.mp4` or `music.mp3`, keep them small (about 1 MB each).
-
-## Photo credits (bride page)
-
-* `assets/ev-mehndi.jpg` – "All grown up and married!" by marian_spiers, CC BY-SA 2.0, https://www.flickr.com/photos/31966439@N00/542761993 (cropped)

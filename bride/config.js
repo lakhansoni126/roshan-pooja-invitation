@@ -54,6 +54,8 @@ window.INVITE = {
     label: "Our Story",
     title: "Forever Us",
     photos: [
+      { src: "../assets/photo-3.jpg", caption: "By the lake" },
+      { src: "../assets/photo-4.jpg", caption: "Two hearts, one dream" },
       { src: "../assets/photo-1.jpg", caption: "Written in the stars" },
       { src: "../assets/photo-2.jpg", caption: "Forever Us" }
     ]
@@ -70,32 +72,22 @@ window.INVITE = {
     buttonLabel: "View on Maps"
   },
 
-  /* ---------- FESTIVITIES (one card per ritual) ----------
-     image: photo behind the card title (leave "" for the plain cream card); imagePosition: which part to show, e.g. "center top"
-     dark: true = light text with a glow (use over photos), false = maroon text
-     dresscode: optional { colors: [...], names: "...", note: "..." }               */
+  /* ---------- FESTIVITIES (one compact card per ritual) ----------
+     icon: kalash | flower | gift | music | feast | dhol | rings  (drawn in script.js)
+     venue/address can also be set per item to override the shared ones below   */
   events: {
     label: "The Celebrations Unfold",
     title: "Festivities",
-    venue: "Sablaniya Krishi Farm · Itawa Bhopji",
-    mapQuery: "Itawa Bhopji Chomu Jaipur",
+    venue: "Sablaniya Krishi Farm",
+    address: "Itawa Bhopji, Chomu · Jaipur",
     items: [
-      { title: "Lagan Tika",         day: "Wednesday", num: "25", monthYear: "Nov 2026", time: "9:15 AM",  image: "../assets/photo-1.jpg", imagePosition: "center 20%", dark: true,
-        tagline: "The auspicious beginning of our wedding celebrations." },
-      { title: "Baan Saankadi",     day: "Thursday",  num: "26", monthYear: "Nov 2026", time: "11:15 AM", image: "../assets/photo-2.jpg", imagePosition: "center 35%", dark: true,
-        tagline: "Blessings, rituals and the warmth of family." },
-      { title: "Chaak – Bhaat",     day: "Sunday",    num: "29", monthYear: "Nov 2026", time: "1:15 PM",  image: "../assets/photo-1.jpg", imagePosition: "center 60%", dark: true,
-        tagline: "Traditions carried forward with love." },
-      { title: "Mahila Sangeet",    day: "Sunday",    num: "29", monthYear: "Nov 2026", time: "7:15 PM",  image: "../assets/ev-mehndi.jpg", imagePosition: "center", dark: true,
-        tagline: "Mehndi, music, dance and an evening of endless celebration.",
-        dresscode: { colors: ["rgb(138, 79, 76)", "rgb(212, 175, 55)", "rgb(245, 236, 212)"], names: "Maroon · Gold · Cream", note: "Traditional Indian" } },
-      { title: "Pritibhoj",         day: "Monday",    num: "30", monthYear: "Nov 2026", time: "4:15 PM",  image: "../assets/photo-2.jpg", imagePosition: "center top", dark: true,
-        tagline: "A feast for our loved ones, from 4:15 PM until your arrival." },
-      { title: "Swagat Baraat",     day: "Monday",    num: "30", monthYear: "Nov 2026", time: "6:15 PM",  image: "../assets/photo-2.jpg", imagePosition: "center 55%", dark: true,
-        tagline: "We welcome the groom's procession with open hearts." },
-      { title: "Panigrahan Sanskar", day: "Monday",   num: "30", monthYear: "Nov 2026", time: "Shubh Lagna", image: "../assets/photo-1.jpg", imagePosition: "center 40%", dark: true,
-        tagline: "The sacred vows to begin our forever.",
-        dresscode: { colors: ["rgb(138, 32, 48)", "rgb(212, 175, 55)", "rgb(242, 234, 225)"], names: "Maroon · Gold · Ivory", note: "Traditional Indian — sarees, lehengas, sherwanis" } }
+      { icon: "kalash", title: "Lagan Tika",         date: "Wednesday, 25 November 2026", time: "9:15 AM" },
+      { icon: "flower", title: "Baan Saankadi",      date: "Thursday, 26 November 2026",  time: "11:15 AM" },
+      { icon: "gift",   title: "Chaak – Bhaat",      date: "Sunday, 29 November 2026",    time: "1:15 PM" },
+      { icon: "music",  title: "Mahila Sangeet",     date: "Sunday, 29 November 2026",    time: "7:15 PM" },
+      { icon: "feast",  title: "Pritibhoj",          date: "Monday, 30 November 2026",    time: "4:15 PM" },
+      { icon: "dhol",   title: "Swagat Baraat",      date: "Monday, 30 November 2026",    time: "6:15 PM" },
+      { icon: "rings",  title: "Panigrahan Sanskar", date: "Monday, 30 November 2026",    time: "Shubh Lagna" }
     ]
   },
 

@@ -234,24 +234,34 @@
     /* festivities */
     const E = C.events || {};
     setText("eventsLabel", E.label); setText("eventsTitle", E.title);
-    const pin = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+    const petal = `<path d="M12 3.2c1.6 2.4 1.6 4.8 0 7.2-1.6-2.4-1.6-4.8 0-7.2zM12 13.6c1.6 2.4 1.6 4.8 0 7.2-1.6-2.4-1.6-4.8 0-7.2z"/>`;
+    const ICONS = {
+      kalash: `<path d="M6.5 11c0 5 2.3 8.5 5.5 8.5s5.5-3.5 5.5-8.5"/><path d="M6 11h12"/><path d="M8.5 8.5h7"/><path d="M8.5 8.5c-1.3-1.1-2.8-1.6-4.5-1.5 .6 1.6 1.9 2.7 3.5 3.3M15.5 8.5c1.3-1.1 2.8-1.6 4.5-1.5-.6 1.6-1.9 2.7-3.5 3.3"/><circle cx="12" cy="5.6" r="2.3"/>`,
+      flower: `<circle cx="12" cy="12" r="2.4"/><g>${petal}</g><g transform="rotate(45 12 12)">${petal}</g><g transform="rotate(90 12 12)">${petal}</g><g transform="rotate(135 12 12)">${petal}</g>`,
+      gift:   `<rect x="3" y="8" width="18" height="4.5" rx="1"/><path d="M5 12.5V20h14v-7.5"/><path d="M12 8v12"/><path d="M12 8c-2.2 0-4.5-1-4.5-3s3-2.3 4.5 3c1.5-5.3 4.5-5 4.5-3s-2.3 3-4.5 3z"/>`,
+      music:  `<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>`,
+      feast:  `<path d="M4 15.5a8 8 0 0 1 16 0"/><path d="M2.5 15.5h19"/><path d="M12 7.5V5.5"/><circle cx="12" cy="4.5" r="1"/><path d="M6 19.5h12"/>`,
+      dhol:   `<ellipse cx="12" cy="7" rx="7" ry="2.6"/><path d="M5 7v10c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V7"/><path d="M8 9.3l-1.6 7.4M16 9.3l1.6 7.4M12 9.6v10"/>`,
+      rings:  `<circle cx="9" cy="13.5" r="5.5"/><circle cx="15" cy="13.5" r="5.5"/><path d="M9 5l1.6-2h2.8L15 5l-3 3z"/>`
+    };
+    const leaves = `<svg class="evc-leaf" style="left:7%;top:9%;--r:-28deg" viewBox="0 0 14 22"><path d="M7 1C2 6 1 13 7 21c6-8 5-15 0-20z" fill="#b9c7a8"/></svg>
+      <svg class="evc-leaf" style="right:6%;top:6%;--r:35deg" viewBox="0 0 14 22"><path d="M7 1C2 6 1 13 7 21c6-8 5-15 0-20z" fill="#e8bfc0"/></svg>
+      <svg class="evc-leaf small" style="left:9%;bottom:12%;--r:60deg" viewBox="0 0 14 22"><path d="M7 1C2 6 1 13 7 21c6-8 5-15 0-20z" fill="#e8bfc0"/></svg>
+      <svg class="evc-leaf small" style="right:8%;bottom:9%;--r:-50deg" viewBox="0 0 14 22"><path d="M7 1C2 6 1 13 7 21c6-8 5-15 0-20z" fill="#b9c7a8"/></svg>`;
     $("#eventsStack").innerHTML = (E.items || []).map((ev) => {
-      const dark = ev.dark ? " dark-text" : "";
-      const venue = ev.venue || E.venue || "", mapQ = ev.mapQuery || E.mapQuery || "";
+      const venue = ev.venue || E.venue || "", addr = ev.address || E.address || "";
       return `
       <div class="event-block">
-        <div class="event-invite-frame${ev.image ? "" : " plain"}">
-          ${ev.image ? `<img class="event-invite-bg" src="${esc(ev.image)}" alt="" loading="lazy"${ev.imagePosition ? ` style="object-position:${esc(ev.imagePosition)}"` : ""}><div class="event-invite-shade"></div>` : ""}
-          <div class="event-invite-overlay"><div class="event-invite-stack">
-            <h3 class="event-invite-title${dark}">${esc(ev.title)}</h3>
-            <div class="event-date-row${dark}"><span>${esc(ev.day)}</span><span class="event-date-bar">|</span><span class="event-date-num">${esc(ev.num)}</span><span class="event-date-bar">|</span><span>${esc(ev.monthYear)}</span></div>
-            <div class="event-invite-time${dark}">${esc(ev.time)}</div>
-          </div></div>
-        </div>
-        <div class="evt-details">
-          <p class="evt-tagline">"${esc(ev.tagline)}"</p>
-          ${ev.dresscode ? `<div class="evt-dresscode"><span class="evt-dresscode-lbl">Dress code</span><div class="evt-dresscode-dots">${(ev.dresscode.colors || []).map((c) => `<span class="evt-dresscode-dot" style="background:${esc(c)}"></span>`).join("")}</div><span class="evt-dresscode-names">${esc(ev.dresscode.names)}</span><span class="evt-dresscode-note">${esc(ev.dresscode.note)}</span></div>` : ""}
-          <div class="evt-venue"><span class="evt-venue-name">${esc(venue)}</span>${mapQ ? `<a class="evt-dir-btn" href="https://maps.google.com/?q=${encodeURIComponent(mapQ)}" target="_blank" rel="noopener">${pin}Get directions</a>` : ""}</div>
+        <div class="evc">
+          ${leaves}
+          <div class="evc-medal">
+            <i class="evc-dot" style="--a:-55deg"></i><i class="evc-dot" style="--a:35deg"></i><i class="evc-dot" style="--a:125deg"></i><i class="evc-dot" style="--a:215deg"></i>
+            <svg class="evc-icon" viewBox="0 0 24 24">${ICONS[ev.icon] || ICONS.flower}</svg>
+          </div>
+          <h3 class="evc-title">${esc(ev.title)}</h3>
+          <div class="evc-date">${esc(ev.date)}${ev.time ? ` · ${esc(ev.time)}` : ""}</div>
+          ${venue ? `<div class="evc-venue">${esc(venue)}</div>` : ""}
+          ${addr ? `<div class="evc-addr">${esc(addr)}</div>` : ""}
         </div>
       </div>`;
     }).join("");
