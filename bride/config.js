@@ -112,7 +112,7 @@ window.INVITE = {
 
   /* ---------- FOOTER ---------- */
   footer: {
-    message: "Haldi and sandalwood, the sacred bond of relationships — we warmly welcome you to the wedding of our Bua ji and Mausi ji.\n\n— Bhavika, Divya, Gauravpreet, Khushpreet, Arpit, Naksh, Daksh, Naman",
+    message: "हल्दी है चंदन है,रिश्तों का बंधन है, हमारी बुआजी और मौसीजी की शादी में आपका अभिनंदन है!.\n\n— Bhavika, Divya, Gauravpreet, Khushpreet, Arpit, Naksh, Daksh, Naman",
     regardsLabel: "Warm regards,",
     regards: "Chhaju Lal, Shravan & Prema Ram Sablaniya and family\nItawa Bhopji · Mob. 9602975788, 9694105788, 9928387445",
     names: "Pooja & Roshan",
